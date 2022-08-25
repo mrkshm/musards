@@ -39,7 +39,7 @@ export default function Carrousel({ projects }) {
                   <img
                     src={`https:${project.fields.cover.fields.file.url}`}
                     alt="hello"
-                    className="rounded-l-sm object-cover w-full max-h-[70vh] pb-8 lg:pb-0"
+                    className="rounded-l-sm object-cover w-full max-h-[60vh] pb-8 lg:pb-0"
                   />
                 </picture>
               </div>
