@@ -143,16 +143,18 @@ export default function ProjectPage({ project }) {
                 ) : null}
 
                 {/* Images */}
-                <div className="flex">
-                  {project.fields.images.map((image, i) => (
-                    <div key={image.sys.id} className="">
-                      <ImageComp
-                        image={image}
-                        odd={i === 0 || i % 2 === 0 ? false : true}
-                      />
-                    </div>
-                  ))}
-                </div>
+                {project.fields.images ? (
+                  <div className="flex">
+                    {project.fields.images.map((image, i) => (
+                      <div key={image.sys.id} className="">
+                        <ImageComp
+                          image={image}
+                          odd={i === 0 || i % 2 === 0 ? false : true}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
