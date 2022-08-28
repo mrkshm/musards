@@ -73,7 +73,7 @@ export default function Contact() {
                     </span>
                   </dd>
                 </div>
-                <div className="mt-3">
+                <div className="mt-10">
                   <dt className="sr-only">Numèro SIRET</dt>
                   <dd className="flex">
                     <IdentificationIcon
@@ -81,6 +81,25 @@ export default function Contact() {
                       aria-hidden="true"
                     />
                     <span className="ml-3">SIRET 818 121 634 00047</span>
+                  </dd>
+                  <dt className="sr-only">APE</dt>
+                  <dd className="flex">
+                    <IdentificationIcon
+                      className="flex-shrink-0 h-6 w-6 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <span className="ml-3">APE : 9001 Z</span>
+                  </dd>
+                  <dt className="sr-only">APE</dt>
+                  <dd className="flex">
+                    <IdentificationIcon
+                      className="flex-shrink-0 h-6 w-6 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <span className="ml-3">
+                      Licence d’entrepreneur de spectacle Catégorie 2 :
+                      n°1096780
+                    </span>
                   </dd>
                 </div>
               </dl>

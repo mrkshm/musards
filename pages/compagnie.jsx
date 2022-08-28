@@ -4,6 +4,12 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import Straight from "../icons/straight.svg";
 
 const renderOptions = {
+  renderText: (text) => {
+    // @ts-ignore
+    return text.split("\n").reduce((children, textSegment, index) => {
+      return [...children, index > 0 && <br key={index} />, textSegment];
+    }, []);
+  },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => {
       return <p className="text-textColor pb-4">{children}</p>;
@@ -25,10 +31,10 @@ const renderOptions = {
   },
 };
 
-function Presentation({ presentation }) {
+function Compagnie({ presentation }) {
   console.log(presentation);
   return (
-    <div>
+    <div className="compagnie">
       <div className="relative pb-12">
         <h1 className="text-4xl font-titleFont font-bold text-textColor">
           La Compagnie
@@ -54,4 +60,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Presentation;
+export default Compagnie;

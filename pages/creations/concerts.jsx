@@ -46,6 +46,12 @@ const audienceOptions = [
     description: "",
     current: false,
   },
+  {
+    title: "Adultes",
+    slug: "Adultes",
+    description: "",
+    current: false,
+  },
 ];
 
 const publishingOptions = [
@@ -119,15 +125,9 @@ function Projets({ projects }) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
         {projects
           .filter((project) => project.fields.byline.includes(genre.slug))
-          .filter((project) => {
-            if (
-              !project.fields.destination ||
-              project.fieds?.destination === "" ||
-              project.fields?.destination.includes(audience.slug)
-            ) {
-              return project.fields.destination;
-            }
-          })
+          // .filter((project) =>
+          //   project.fields.destination.includes(audience.slug)
+          // )
           .filter((project) => {
             if (published.slug === "enPreparation") {
               return project.fields.inPreparation;

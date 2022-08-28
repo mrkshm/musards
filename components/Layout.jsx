@@ -8,9 +8,9 @@ import Link from "next/link";
 
 const navigation = [
   { name: "Accueil", href: "/", current: true },
-  { name: "Projets", href: "/projets", current: false },
+  { name: "Nos créations", href: "/projets", current: false },
   { name: "Agenda", href: "/agenda", current: false },
-  { name: "Présentation", href: "/presentation", current: false },
+  { name: "La Compagnie", href: "/compagnie", current: false },
   { name: "Contact", href: "/contact", current: false },
 ];
 
@@ -190,10 +190,10 @@ export default function Layout({ children }) {
                         {item.current ? (
                           <Sputter
                             className={`w-10 ${
-                              currentPage === "/presentation"
+                              currentPage === "/presentation" || "/projets"
                                 ? "h-40 left-20 -rotate-[89deg]"
                                 : "h-28 left-14 -rotate-[89deg]"
-                            } absolute fill-cream mt-12`}
+                            } absolute fill-cream mt-[28px]`}
                           />
                         ) : null}
                       </a>
