@@ -34,7 +34,7 @@ const renderOptions = {
 export default function ProjectPage({ project }) {
   const router = useRouter();
   const { slug } = router.query;
-  console.log(project);
+
   return (
     <div>
       <div className="">

@@ -29,14 +29,10 @@ export default function Card({ project }) {
                 {project.fields.byline}
               </div>
 
-              {project.fields.destination === "Jeune public" ? (
+              {project.fields.destination &&
+              project.fields.destination.includes("Jeune public") ? (
                 <div className="bg-carrot max-w-[120px] text-center rounded-sm text-offWhite py-1 px-2">
-                  Jeune public
-                </div>
-              ) : null}
-              {project.fields.destination === "Adultes" ? (
-                <div className="bg-warning max-w-[80px] text-center rounded-sm text-offWhite py-1 px-2">
-                  Adultes
+                  {project.fields.destination}
                 </div>
               ) : null}
             </div>

@@ -18,7 +18,6 @@ const options = {
 };
 
 export default function Carrousel({ projects }) {
-  console.log(projects.filter((project) => project.fields.enVedette));
   return (
     <div>
       <Swiper
@@ -28,8 +27,8 @@ export default function Carrousel({ projects }) {
         pagination={{ clickable: true }}
         spaceBetween={50}
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
         {projects.map((project) => (
           <SwiperSlide key={project.fields.slug}>

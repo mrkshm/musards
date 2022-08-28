@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const navigation = [
   { name: "Accueil", href: "/", current: true },
-  { name: "Nos créations", href: "/projets", current: false },
+  { name: "Nos créations", href: "/creations", current: false },
   { name: "Agenda", href: "/agenda", current: false },
   { name: "La Compagnie", href: "/compagnie", current: false },
   { name: "Contact", href: "/contact", current: false },
@@ -22,11 +22,12 @@ export default function Layout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
   const currentPage = router.pathname;
+  console.log("current is", currentPage);
 
   const pageTitle = useMemo(() => {
     switch (currentPage) {
-      case "/projets":
-        return "Projets";
+      case "/creations":
+        return "Nos creations";
         break;
       case "/agenda":
         return "Agenda";
@@ -55,14 +56,6 @@ export default function Layout({ children }) {
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
@@ -190,9 +183,10 @@ export default function Layout({ children }) {
                         {item.current ? (
                           <Sputter
                             className={`w-10 ${
-                              currentPage === "/presentation" || "/projets"
+                              currentPage === "/compagnie" ||
+                              currentPage === "/creations"
                                 ? "h-40 left-20 -rotate-[89deg]"
-                                : "h-28 left-14 -rotate-[89deg]"
+                                : "h-24 stroke-cream stroke-2 left-12 -rotate-[89deg]"
                             } absolute fill-cream mt-[28px]`}
                           />
                         ) : null}

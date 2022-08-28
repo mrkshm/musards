@@ -1,5 +1,6 @@
 import Straight from "../../icons/straight.svg";
 import Dropdown from "../../components/Dropdown";
+import { useRouter } from "next/router";
 import Card from "../../components/Card";
 import { useState, useMemo, useEffect } from "react";
 import { getEntries } from "../../lib/contentful";
@@ -46,12 +47,6 @@ const audienceOptions = [
     description: "",
     current: false,
   },
-  {
-    title: "Adultes",
-    slug: "Adultes",
-    description: "",
-    current: false,
-  },
 ];
 
 const publishingOptions = [
@@ -85,6 +80,21 @@ function Projets({ projects }) {
   const [audience, setAudience] = useState(audienceOptions[0]);
   const [published, setPublished] = useState(publishingOptions[0]);
 
+  const router = useRouter();
+  const hrefMod = router.query;
+
+  useEffect(() => {
+    if (hrefMod.cat === "Jeune-public") {
+      setAudience(audienceOptions[1]);
+    } else if (hrefMod.cat === "Concerts") {
+      setGenre(genreOptions[1]);
+    } else if (hrefMod.cat === "Ciné-concerts") {
+      setGenre(genreOptions[2]);
+    } else if (hrefMod.cat === "Théâtre") {
+      setGenre(genreOptions[3]);
+    }
+  }, []);
+
   return (
     <div>
       {/* Header */}
@@ -92,9 +102,9 @@ function Projets({ projects }) {
         <div>
           <div className="min-w-[220px]">
             <h1 className="text-4xl font-titleFont font-bold text-textColor pb-4 md:pb-0">
-              Nos projets
+              Nos créations
             </h1>
-            <div className="-rotate-[88deg] hidden md:inline absolute w-[8px] h-[20px] stroke-2">
+            <div className="-rotate-[88.5deg] hidden md:inline -mt-2 absolute w-[10px] h-[26px] stroke-2">
               <Straight />
             </div>
           </div>
@@ -125,9 +135,15 @@ function Projets({ projects }) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
         {projects
           .filter((project) => project.fields.byline.includes(genre.slug))
-          // .filter((project) =>
-          //   project.fields.destination.includes(audience.slug)
-          // )
+          .filter((project) => {
+            if (
+              !project.fields.destination ||
+              project.fieds?.destination === "" ||
+              project.fields?.destination.includes(audience.slug)
+            ) {
+              return project.fields.destination;
+            }
+          })
           .filter((project) => {
             if (published.slug === "enPreparation") {
               return project.fields.inPreparation;

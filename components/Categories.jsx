@@ -1,4 +1,5 @@
 import { sortAsc } from "../lib/helpers";
+import Link from "next/link";
 
 export default function Categories({ categoryItems }) {
   return (
@@ -31,14 +32,22 @@ export default function Categories({ categoryItems }) {
                 </div>
                 <div className="flex-1 bg-offWhite py-6 px-2 flex flex-col justify-between">
                   <div className="flex-1">
-                    <a href={category.fields.href} className="block mt-2">
-                      <p className="text-2xl font-titleFont text-gray-900">
-                        {category.fields.title}
-                      </p>
-                      <p className="mt-3 text-base text-gray-500">
-                        {category.fields.description}
-                      </p>
-                    </a>
+                    <Link
+                      href={{
+                        pathname: category.fields.href,
+                        query: { cat: category.fields.title.replace(" ", "-") },
+                      }}
+                      className="block mt-2"
+                    >
+                      <a>
+                        <p className="text-2xl font-titleFont text-gray-900">
+                          {category.fields.title}
+                        </p>
+                        <p className="mt-3 text-base text-gray-500">
+                          {category.fields.description}
+                        </p>
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
