@@ -47,7 +47,7 @@ export default function ProjectPage({ project }) {
               </div>
 
               <div className="text-sm md:text-lg min-w-[200px] self-end text-right">
-                <Link href="/projets">← &nbsp;&nbsp;Retour aux projets</Link>
+                <Link href="/creations">← &nbsp;&nbsp;Retour aux projets</Link>
               </div>
             </div>
             <picture className="md:hidden">

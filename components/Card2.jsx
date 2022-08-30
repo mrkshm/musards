@@ -1,14 +1,14 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 
-export default function Card({ project }) {
+export default function Card2({ project }) {
   return (
     <div className=" bg-offWhite mb-6 shadow-sm hover:shadow-lg transition-all duration-700 rounded-sm text-textColor hover:bg-warning hover:bg-opacity-5">
       <Link href={`/projets/${project.fields.slug}`}>
         <a>
           <picture>
             <img
-              className="rounded-t-sm h-[250px] w-full object-cover object-top md:object-center"
+              className="rounded-t-sm h-[250px] w-full object-contain object-top md:object-center"
               src={project.fields.cover.fields.file.url}
               alt={project.fields.cover.fields.description}
             />

@@ -32,7 +32,7 @@ export default function Carrousel({ projects }) {
       >
         {projects.map((project) => (
           <SwiperSlide key={project.fields.slug}>
-            <div className=" grid grid-cols-1 lg:grid-cols-[45%_55%] w-full lg:mx-12 rounded-sm pb-8 px-0 lg:px-0">
+            <div className=" grid grid-cols-1 lg:grid-cols-[45%_55%] w-full lg:mx-12 rounded-sm pb-8 px-0 lg:px-0 shadow-sm">
               <div className="bg-offWhite rounded-l-lg h-full">
                 <picture>
                   <img

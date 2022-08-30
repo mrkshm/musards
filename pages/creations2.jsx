@@ -1,11 +1,11 @@
-import Straight from "../../icons/straight.svg";
-import Dropdown from "../../components/Dropdown";
+import Straight from "../icons/straight.svg";
+import Dropdown from "../components/Dropdown";
 import { useRouter } from "next/router";
-import Card from "../../components/Card";
+import Card2 from "../components/Card2";
 import { useState, useMemo, useEffect } from "react";
-import { getEntries } from "../../lib/contentful";
-import Turny from "../../icons/turny.svg";
-import { sortAsc } from "../../lib/helpers";
+import { getEntries } from "../lib/contentful";
+import Turny from "../icons/turny.svg";
+import { sortAsc } from "../lib/helpers";
 
 const genreOptions = [
   {
@@ -157,7 +157,7 @@ function Projets({ projects }) {
           })
           .sort(sortAsc)
           .map((project) => (
-            <Card project={project} key={project.fields.slug} />
+            <Card2 project={project} key={project.fields.slug} />
           ))}
       </div>
     </div>
