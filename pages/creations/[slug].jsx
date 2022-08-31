@@ -167,7 +167,7 @@ export default function ProjectPage({ project }) {
 
 export const getStaticPaths = async () => {
   const res = await getEntries("musProject");
-  console.log("res is ", res);
+
   const paths = res.items.map((project) => {
     return {
       params: { slug: project.fields.slug },
