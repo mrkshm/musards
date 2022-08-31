@@ -117,6 +117,12 @@ export default function Contact() {
                 className="grid grid-cols-1 gap-y-6"
               >
                 <input type="hidden" name="form-name" value="contact" />
+                <div className="hidden">
+                  <label>
+                    Don’t fill this out if you’re human:{" "}
+                    <input name="bot-field" />
+                  </label>
+                </div>
                 <div>
                   <label htmlFor="full-name" className="sr-only">
                     Nom
@@ -127,7 +133,7 @@ export default function Contact() {
                     name="full-name"
                     id="full-name"
                     autoComplete="name"
-                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
                     placeholder="Votre nom"
                   />
                 </div>
@@ -141,7 +147,7 @@ export default function Contact() {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
                     placeholder="Votre email"
                   />
                 </div>
@@ -154,7 +160,7 @@ export default function Contact() {
                     name="phone"
                     id="phone"
                     autoComplete="tel"
-                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-ocean focus:border-ocean border-gray-300 rounded-md"
+                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-ocean focus:border-ocean border border-gray-300 rounded-md"
                     placeholder="Votre téléphone"
                   />
                 </div>
@@ -167,7 +173,7 @@ export default function Contact() {
                     id="message"
                     name="message"
                     rows={4}
-                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-ocean focus:border-ocean border border-gray-300 rounded-md"
+                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
                     placeholder="Votre message"
                     defaultValue={""}
                   />
