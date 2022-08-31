@@ -22,7 +22,6 @@ export default function Layout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
   const currentPage = router.pathname;
-  console.log("current is", currentPage);
 
   const pageTitle = useMemo(() => {
     switch (currentPage) {

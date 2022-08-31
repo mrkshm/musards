@@ -8,6 +8,7 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import Download from "../../icons/download.svg";
 import VideoPlayer from "../../components/VideoPlayer";
 import ImageComp from "../../components/ImageComp";
+import MetaHead from "../../components/MetaHead";
 
 const renderOptions = {
   renderNode: {
@@ -15,7 +16,6 @@ const renderOptions = {
       return <p className="text-textColor pb-4">{children}</p>;
     },
     [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-      console.log("node is", node.data.target.fields.file);
       return (
         <div className="w-full">
           <picture>
@@ -37,6 +37,7 @@ export default function ProjectPage({ project }) {
 
   return (
     <div>
+      <MetaHead pageTitle={project.fields.title} />
       <div className="">
         <div>
           <div className="w-full">

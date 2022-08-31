@@ -2,6 +2,7 @@ import { getEntry } from "../lib/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import Straight from "../icons/straight.svg";
+import MetaHead from "../components/MetaHead";
 
 const renderOptions = {
   renderText: (text) => {
@@ -15,7 +16,6 @@ const renderOptions = {
       return <p className="text-textColor pb-4">{children}</p>;
     },
     [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-      console.log("node is", node.data.target.fields.file);
       return (
         <div className="w-full">
           <picture>
@@ -32,9 +32,9 @@ const renderOptions = {
 };
 
 function Compagnie({ presentation }) {
-  console.log(presentation);
   return (
     <div className="compagnie">
+      <MetaHead pageTitle="à propos" />
       <div className="relative pb-12">
         <h1 className="text-4xl font-titleFont font-bold text-textColor">
           La Compagnie

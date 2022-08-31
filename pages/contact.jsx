@@ -4,11 +4,13 @@ import {
   IdentificationIcon,
 } from "@heroicons/react/outline";
 import Link from "next/link";
+import MetaHead from "../components/MetaHead";
 import Straight from "../icons/straight.svg";
 
 export default function Contact() {
   return (
     <div className="">
+      <MetaHead pageTitle="Contact" />
       <div className="relative pb-12">
         <h1 className="text-4xl font-titleFont font-bold text-textColor">
           Contact
@@ -120,6 +122,7 @@ export default function Contact() {
                     Nom
                   </label>
                   <input
+                    required
                     type="text"
                     name="full-name"
                     id="full-name"
@@ -133,6 +136,7 @@ export default function Contact() {
                     Email
                   </label>
                   <input
+                    required
                     id="email"
                     name="email"
                     type="email"
@@ -159,6 +163,7 @@ export default function Contact() {
                     Message
                   </label>
                   <textarea
+                    required
                     id="message"
                     name="message"
                     rows={4}

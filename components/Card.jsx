@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 export default function Card({ project }) {
   return (
     <div className=" bg-offWhite mb-6 shadow-sm hover:shadow-lg transition-all duration-700 rounded-sm text-textColor hover:bg-warning hover:bg-opacity-5">
-      <Link href={`/projets/${project.fields.slug}`}>
+      <Link href={`/creations/${project.fields.slug}`}>
         <a>
           <picture>
             <img

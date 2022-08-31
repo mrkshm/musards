@@ -6,6 +6,7 @@ import { useState, useMemo, useEffect } from "react";
 import { getEntries } from "../../lib/contentful";
 import Turny from "../../icons/turny.svg";
 import { sortAsc } from "../../lib/helpers";
+import MetaHead from "../../components/MetaHead";
 
 const genreOptions = [
   {
@@ -93,10 +94,11 @@ function Projets({ projects }) {
     } else if (hrefMod.cat === "Théâtre") {
       setGenre(genreOptions[3]);
     }
-  }, []);
+  }, [hrefMod.cat]);
 
   return (
     <div>
+      <MetaHead pageTitle="Nos créations" />
       {/* Header */}
       <div className="relative pb-12 flex flex-col md:flex-row justify-between">
         <div>

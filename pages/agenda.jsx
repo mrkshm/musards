@@ -2,11 +2,12 @@ import { getEntries } from "../lib/contentful";
 import { sortAsc } from "../lib/helpers";
 import Straight from "../icons/straight.svg";
 import AgendaCard from "../components/AgendaCard";
+import MetaHead from "../components/MetaHead";
 
 function Agenda({ projects }) {
-  console.log(projects.sort(sortAsc));
   return (
     <div>
+      <MetaHead pageTitle="Agenda" />
       <div className="">
         <div className="relative pb-12">
           <h1 className="text-4xl font-titleFont font-bold text-textColor">
