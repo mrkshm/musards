@@ -56,7 +56,7 @@ export default function Carrousel({ projects }) {
                     </div>
                   </div>
                   <div className="pb-4">
-                    <Link href={`/projets/${project.fields.slug}`}>
+                    <Link href={`/creations/${project.fields.slug}`}>
                       → Plus d&apos;infos
                     </Link>
                   </div>
