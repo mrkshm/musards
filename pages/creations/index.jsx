@@ -184,8 +184,8 @@ function Projets({ projects }) {
             }
           }).length < 1 ? (
           <div>
-            Il n&apos;y a pas de spectacle pour les filtres choisis. <br />
-            Veuillez faire un autre choix.
+            Il n&apos;y a pas de spectacle pour les filtres choisis. Veuillez
+            faire un autre choix.
           </div>
         ) : null}
       </div>
