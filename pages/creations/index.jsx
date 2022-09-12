@@ -161,6 +161,33 @@ function Projets({ projects }) {
           .map((project) => (
             <Card project={project} key={project.fields.slug} />
           ))}
+        {projects
+          .filter((project) => project.fields.byline.includes(genre.slug))
+          .filter((project) => {
+            if (
+              !project.fields.destination ||
+              project.fieds?.destination === "" ||
+              project.fields?.destination.includes(audience.slug)
+            ) {
+              return project.fields.destination;
+            }
+          })
+          .filter((project) => {
+            if (published.slug === "enPreparation") {
+              return project.fields.enPreparation;
+            } else if (published.slug === "archived") {
+              return project.fields.archive;
+            } else if (published.slug === "actuel") {
+              return !project.fields.inPreparation && !project.fields.archive;
+            } else {
+              return project;
+            }
+          }).length < 1 ? (
+          <div>
+            Il n&apos;y a pas de spectacle pour les filtres choisis. <br />
+            Veuillez faire un autre choix.
+          </div>
+        ) : null}
       </div>
     </div>
   );

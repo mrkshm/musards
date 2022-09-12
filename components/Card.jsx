@@ -17,9 +17,9 @@ export default function Card({ project }) {
             <div className="font-titleFont text-2xl tracking-wide pb-2">
               {project.fields.title}
             </div>
-            <div className="font-light text-sm">
+            <div className="font-light text-sm flex flex-col sm:flex-row gap-2">
               <div
-                className={`text-offWhite py-1 mb-2 max-w-[120px] text-center rounded-sm  ${
+                className={`text-offWhite px-2 py-1 mb-2 max-w-[120px] text-center rounded-sm  ${
                   project.fields.byline === "Ciné-concert"
                     ? "bg-ocean"
                     : project.fields.byline === "Concert"
@@ -32,7 +32,7 @@ export default function Card({ project }) {
 
               {project.fields.destination &&
               project.fields.destination.includes("Jeune public") ? (
-                <div className="bg-carrot max-w-[120px] text-center rounded-sm text-offWhite py-1 px-2">
+                <div className="bg-carrot mb-2 max-w-[120px] text-center rounded-sm text-offWhite py-1 px-2">
                   {project.fields.destination}
                 </div>
               ) : null}

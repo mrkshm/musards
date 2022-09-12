@@ -59,8 +59,24 @@ export default function ProjectPage({ project }) {
               />
             </picture>
 
-            <div className="pt-0 md:pt-8">
-              {project.fields.byline} {project.fields.destination}
+            <div className="pt-0 md:pt-8 flex gap-4 items-center">
+              <div
+                className={`text-offWhite px-2 py-1 mb-2 max-w-[140px] text-center rounded-sm  ${
+                  project.fields.byline === "Ciné-concert"
+                    ? "bg-ocean"
+                    : project.fields.byline === "Concert"
+                    ? "bg-forrest"
+                    : "bg-rosewood"
+                }`}
+              >
+                {project.fields.byline}
+              </div>
+              {project.fields.destination &&
+              project.fields.destination.includes("Jeune public") ? (
+                <div className="bg-carrot max-w-[120px] text-center rounded-sm text-offWhite py-1 px-2 mb-2">
+                  {project.fields.destination}
+                </div>
+              ) : null}
             </div>
 
             {/* Container designer */}
