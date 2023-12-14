@@ -18,11 +18,21 @@ function Agenda({ projects }) {
           </div>
         </div>
       </div>
-      {projects.map((project) => (
-        <div key={project.sys.id}>
-          <AgendaCard spectacle={project} />
-        </div>
-      ))}
+      {projects
+        .sort((a, b) => {
+          // Assuming projects without an order are either null or undefined
+          if (a.fields.order === null || a.fields.order === undefined) return 1;
+          if (b.fields.order === null || b.fields.order === undefined)
+            return -1;
+
+          // If both have orders, sort them numerically
+          return a.fields.order - b.fields.order;
+        })
+        .map((project) => (
+          <div key={project.sys.id}>
+            <AgendaCard spectacle={project} />
+          </div>
+        ))}
     </div>
   );
 }

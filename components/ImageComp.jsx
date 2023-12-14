@@ -33,6 +33,10 @@ export default function ImageComp({ image, odd }) {
     setIsOpen(false);
   }
 
+  if (!image || !image.fields || !image.fields.file) {
+    return null; // or some fallback UI
+  }
+
   return (
     <div>
       <picture key={image.sys.id}>

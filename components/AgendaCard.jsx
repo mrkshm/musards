@@ -28,6 +28,7 @@ export default function AgendaCard({ spectacle }) {
     if (inView) {
       animation.start({
         opacity: 1,
+        once: true,
         x: 0,
         transition: {
           type: "spring",
@@ -44,24 +45,29 @@ export default function AgendaCard({ spectacle }) {
 
   return (
     <div ref={ref} className="agendaCard">
-      <motion.div animate={animation}>
+      <motion.div animate={animation} viewport={{ once: true }}>
         <div className="grid md:grid-cols-2">
           <picture className="max-w-[90%]">
             <img
-              className="pb-4 max-h-[50vh] w-[90%] object-cover object-bottom"
+              className="pb-4 max-h-[50vh] w-[90%] object-contain object-bottom"
               src={`https:${spectacle.fields.image.fields.file.url}`}
               alt={spectacle.fields.image.description}
             />
           </picture>
 
           <div className="">
-            <Link
-              href={`http://localhost:3000/projets/${spectacle.fields.lienMusards}`}
-            >
-              <div className="text-4xl font-titleFont pt-8 md:pt-0 cursor-pointer">
-                {spectacle.fields.title}
-              </div>
-            </Link>
+            <div className="text-4xl font-titleFont pt-8 md:pt-0">
+              {spectacle.fields.lienMusards ? (
+                <Link
+                  className="cursor-pointer"
+                  href={spectacle.fields.lienMusards}
+                >
+                  <a>{spectacle.fields.title}</a>
+                </Link>
+              ) : (
+                <span>{spectacle.fields.title}</span>
+              )}
+            </div>
             <div className="contentfulCardText py-8">
               {documentToReactComponents(spectacle.fields.description, options)}
             </div>
