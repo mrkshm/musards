@@ -20,9 +20,9 @@ export default function Card({ project }) {
             <div className="font-light text-sm flex flex-col sm:flex-row gap-2">
               <div
                 className={`text-offWhite px-2 py-1 mb-2 max-w-[120px] text-center rounded-sm  ${
-                  project.fields.byline === "Ciné-concert"
+                  project.fields.byline.includes("Ciné-concert")
                     ? "bg-ocean"
-                    : project.fields.byline === "Concert"
+                    : project.fields.byline.includes("Concert")
                     ? "bg-forrest"
                     : "bg-rosewood"
                 }`}
@@ -32,7 +32,7 @@ export default function Card({ project }) {
 
               {project.fields.destination &&
               project.fields.destination.includes("Jeune public") ? (
-                <div className="bg-carrot mb-2 max-w-[120px] text-center rounded-sm text-offWhite py-1 px-2">
+                <div className="bg-carrot mb-2 max-w-[120px] flex items-center text-center rounded-sm text-offWhite py-1 px-2">
                   {project.fields.destination}
                 </div>
               ) : null}
