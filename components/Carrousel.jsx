@@ -33,20 +33,24 @@ export default function Carrousel({ projects }) {
         {projects.map((project) => (
           <SwiperSlide key={project.fields.slug}>
             <div className=" grid grid-cols-1 lg:grid-cols-[45%_55%] w-full lg:mx-12 rounded-sm pb-8 px-0 lg:px-0 shadow-sm">
-              <div className="bg-offWhite rounded-l-lg h-full">
-                <picture>
-                  <img
-                    src={`https:${project.fields.cover.fields.file.url}`}
-                    alt={project.fields.cover.fields.description}
-                    className="rounded-l-sm object-cover w-full max-h-[450px] pb-8 lg:pb-0"
-                  />
-                </picture>
-              </div>
+              <Link href={`/creations/${project.fields.slug}`}>
+                <div className="bg-offWhite rounded-l-lg h-full cursor-pointer">
+                  <picture>
+                    <img
+                      src={`https:${project.fields.cover.fields.file.url}`}
+                      alt={project.fields.cover.fields.description}
+                      className="rounded-l-sm object-contain w-full max-h-[450px] pb-8 lg:pb-0"
+                    />
+                  </picture>
+                </div>
+              </Link>
               <div className="bg-offWhite rounded-r-sm h-full px-2 pr-6">
                 <div className="lg:pl-6 flex flex-col gap-2 h-full justify-between">
                   <div className="">
                     <div className="font-titleFont text-3xl tracking-widest">
-                      {project.fields.title}
+                      <Link href={`/creations/${project.fields.slug}`}>
+                        {project.fields.title}
+                      </Link>
                     </div>
                     <div className="py-4">
                       {documentToReactComponents(
