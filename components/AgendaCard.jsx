@@ -1,6 +1,6 @@
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import VideoPlayer from "./VideoPlayer";
@@ -24,11 +24,12 @@ export default function AgendaCard({ spectacle }) {
   const { ref, inView } = useInView();
   const animation = useAnimation();
 
+  const [hasAnimated, setHasAnimated] = useState(false);
+
   useEffect(() => {
-    if (inView) {
+    if (inView && !hasAnimated) {
       animation.start({
         opacity: 1,
-        once: true,
         x: 0,
         transition: {
           type: "spring",
@@ -36,16 +37,17 @@ export default function AgendaCard({ spectacle }) {
           bounce: 0,
         },
       });
+      setHasAnimated(true);
     }
 
-    if (!inView) {
+    if (!inView && !hasAnimated) {
       animation.start({ x: "-100vw", opacity: 0 });
     }
-  }, [inView, ref, animation]);
+  }, [inView, ref, animation, hasAnimated]);
 
   return (
     <div ref={ref} className="agendaCard">
-      <motion.div animate={animation} viewport={{ once: true }}>
+      <motion.div animate={animation}>
         <div className="grid md:grid-cols-2">
           <picture className="max-w-[90%]">
             <img
@@ -60,7 +62,10 @@ export default function AgendaCard({ spectacle }) {
               {spectacle.fields.lienMusards ? (
                 <Link
                   className="cursor-pointer"
-                  href={spectacle.fields.lienMusards}
+                  href={spectacle.fields.lienMusards.replace(
+                    "https://musards.fr",
+                    ""
+                  )}
                 >
                   <a>{spectacle.fields.title}</a>
                 </Link>
